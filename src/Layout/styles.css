@@ -1,0 +1,19 @@
+.headerColumn {
+  display: block;
+}
+
+.headerImage {
+  display: block;
+  position: relative;
+  background: transparent
+    url("https://www.theaustralian.com.au/wp-content/themes/newscorpau-theaustralian-broadsheet/dist/images/logo.svg")
+    0 0 no-repeat;
+  margin: auto;
+  margin-bottom: -0.5rem;
+  height: 2.8125rem;
+  width: 33.75rem;
+}
+
+.navBar {
+    border-top: 1px solid grey;
+}
