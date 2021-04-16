@@ -6,6 +6,7 @@ This is a sample news app layout created for a job application. All rights belon
 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
