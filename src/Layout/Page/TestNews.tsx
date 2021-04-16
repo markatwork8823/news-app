@@ -1,4 +1,4 @@
-import react from "react";
+
 import { Container, Grid } from "semantic-ui-react";
 
 import businessNews from "../../NewsSource/businessNews";

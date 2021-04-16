@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Grid, Image } from "semantic-ui-react";
+import { Divider, Grid, Header, Image } from "semantic-ui-react";
 import Article from "../../Models/Article";
 
 interface Props {
@@ -19,6 +19,9 @@ export default function MoreNews({ articles }: Props) {
   
   return (
     <>
+     <Header>
+      <div>More News</div>
+     </Header>
       <Grid>
         {articles.splice(-20).map((article) => (
           <>

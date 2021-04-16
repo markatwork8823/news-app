@@ -11,7 +11,7 @@ function App() {
     var article: Article = {
       image: post.thread.main_image,
       body: post.text,
-      date: post.published,
+      date: new Date(post.published).toDateString(),
       title: post.title,
     };
     articles.push(article);

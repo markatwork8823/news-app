@@ -1,5 +1,4 @@
-import react from "react";
-import { Image } from "semantic-ui-react";
+
 
 export default function Filter() {
   return (

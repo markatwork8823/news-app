@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Menu } from "semantic-ui-react";
+import { Grid, Menu } from "semantic-ui-react";
 
 export default function HeaderSub() {
   return (

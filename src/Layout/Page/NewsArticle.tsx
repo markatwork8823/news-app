@@ -1,4 +1,4 @@
-import react from "react";
+
 import { Image } from "semantic-ui-react";
 import Article from "../../Models/Article";
 
