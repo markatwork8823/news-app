@@ -3,7 +3,7 @@ import { Button, Container, Menu } from "semantic-ui-react";
 
 export default function NavBar() {
   return (
-    <Menu tabular className='navBar'>
+    <Menu className='navBar'>
       <Menu.Item name="Home" href="some link">
         HOME
       </Menu.Item>

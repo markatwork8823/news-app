@@ -1,33 +1,46 @@
 import React from "react";
 import { Container, Divider, Grid } from "semantic-ui-react";
-import Ad from "../../Features/Ads/Ad";
+import Filter from "../../Features/Ads/Filter";
 import HeadlinesLatest from "../../Features/Headlines/HeadlinesLatest";
-import AdBlock from "../Headers/AdBlock";
+import Search from "../../Features/Search";
+import Article from "../../Models/Article";
 import HeaderContainer from "../Headers/HeaderContainer";
 import NavBar from "../Headers/NavBar";
 import Body from "./Body";
 
-export default function Page() {
+interface Props {
+  articles: Article[]
+}
+export default function Page({articles} : Props ){
   return (
     <>
       <Container>
         <Grid>
-          <Grid.Row>
-            <AdBlock />
-          </Grid.Row>
-          <Grid.Row>
+          <Grid.Row className="headerContainer">
             <HeaderContainer />
           </Grid.Row>
-          <Grid.Row centered>
-            <NavBar />
+          <Divider />
+          <Grid.Row columns={3}>
+            <Grid.Column width="2" textAlign="left">
+              <Filter />
+            </Grid.Column>
+            <Grid.Column width="12" textAlign="center">
+              <NavBar />
+            </Grid.Column>
+            <Grid.Column width="2" textAlign="right">
+              <Search />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Grid.Row centered>
-          <HeadlinesLatest />
+        <Divider />
+        <Grid.Row columns={1} centered>
+          <Grid.Column width="16">
+            <HeadlinesLatest articles={articles} />
+          </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={2}>
           <Grid.Column width="12">
-            <Body />
+            <Body articles={articles}/>
           </Grid.Column>
         </Grid.Row>
       </Container>

@@ -1,19 +1,23 @@
 import react from "react";
 import { Image } from "semantic-ui-react";
+import Article from "../../Models/Article";
 
-interface Props{
-    image?: string,
-    body: string
+interface Props {
+  article: Article;
 }
 
-export default function NewsArticle({image, body}: Props) {
-    console.log(image);
+export default function NewsArticle({ article }: Props) {
   return (
     <>
-      <Image src={image} />
-      <span>
-          {body}
-      </span>
+      <Image src={article.image} />
+      <div style={{ marginTop: "1rem" }}>
+        <span>
+          <h3>{article.title}</h3>
+        </span>
+      </div>
+      <div style={{ marginTop: "1rem" }}>
+        <span>{article.body.substring(0, 250)}</span>
+      </div>
     </>
   );
 }

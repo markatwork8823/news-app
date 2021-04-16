@@ -4,8 +4,10 @@ import { Button } from "semantic-ui-react";
 export default function UserControls() {
   return (
     <>
-      <Button positive>Subscribe</Button>
-      <Button>Login</Button>
+      <div className="userControls">
+        <Button positive>Subscribe</Button>
+        <Button>Login</Button>
+      </div>
     </>
   );
 }

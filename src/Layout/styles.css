@@ -2,6 +2,8 @@
   display: block;
 }
 
+
+
 .headerImage {
   display: block;
   position: relative;
@@ -15,5 +17,47 @@
 }
 
 .navBar {
-    border-top: 1px solid grey;
+  border-top: rgba(0, 0, 0, 0.85);
+  border-bottom: rgba(0, 0, 0, 0.85);
+}
+
+.headerAd {
+  border: "0";
+  width: "728";
+  height: "90";
+  display: block;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.headerBackground {
+  background: #f6f6f6 !important;
+  width: 100% auto;
+  height: 110px;
+}
+
+#root .ui.container .headerBackground {
+  background: #f6f6f6 !important;
+  width: 11000px auto !important;
+}
+
+.headerContainer {
+  margin-top: 4rem;
+}
+
+.userControls {
+  margin-top: 1rem;
+}
+
+.filter {
+  margin-top: 6rem;
+}
+
+.search {
+  margin-top: 1rem;
+}
+
+.ui.menu {
+  border: 0px im !important;
+  box-shadow: 0px;
 }

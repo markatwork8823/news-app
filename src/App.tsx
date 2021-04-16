@@ -1,21 +1,31 @@
-import React from "react";
-import { Container } from "semantic-ui-react";
-import HeadlinesLatest from "./Features/Headlines/HeadlinesLatest";
+import React, { useEffect, useState } from "react";
 import AdBlock from "./Layout/Headers/AdBlock";
-import HeaderContainer from "./Layout/Headers/HeaderContainer";
-import NavBar from "./Layout/Headers/NavBar";
 import Page from "./Layout/Page/Page";
+import healthNews from "./NewsSource/healthNews";
+import Article from "./Models/Article";
 
 function App() {
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  healthNews.posts.forEach((post) => {
+    var article: Article = {
+      image: post.thread.main_image,
+      body: post.text,
+      date: post.published,
+      title: post.title,
+    };
+    articles.push(article);
+  });
+  useEffect(() => {
+    setArticles(articles);
+  }, articles);
+
   return (
     <>
-       {/* <AdBlock />
-      <Container>
-        <HeaderContainer />
-        <NavBar />
-        <HeadlinesLatest />
-      </Container>  */}
-      <Page/>
+      <div className="headerBackground">
+        <AdBlock />
+      </div>
+      <Page articles={articles} />
     </>
   );
 }

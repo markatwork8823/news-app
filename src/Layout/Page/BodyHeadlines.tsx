@@ -1,63 +1,94 @@
 import React from "react";
 import { Divider, Grid, Image } from "semantic-ui-react";
 import Ad from "../../Features/Ads/Ad";
+import Article from "../../Models/Article";
 import NewsArticle from "./NewsArticle";
 
-export default function BodyHeadlines() {
+interface Props {
+  articles: Article[];
+}
+
+export default function BodyHeadlines({ articles }: Props) {
+  // randomise articles
+  function shuffle(array: Article[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  let headlineArticles = articles
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+
+  let headlineArticles2 = articles
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+
+  let headlineArticles3 = articles
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+
+  let headlineArticles4 = articles
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+
   return (
     <>
-      <Grid>
+      <Grid divided>
         <Grid.Row columns={4}>
           <Grid.Column width="4">
-            <div>
-              <span>
-                It’s war: Morrison in rethink on vaccine strategy PM puts
-                national cabinet on ‘warlike footing’ to speed up vaccine
-                program as Dan Tehan flies to Europe in bid to end export bans.
-                1 MINUTE AGO  By ROSIE LEWIS, NICHOLAS JENSEN * Lack of vaccine
-                choice troubles over-50s
-              </span>
-            </div>
-            <Divider />
-            <div>
-              <span>
-                PM pulled the trigger on a Labor assassination Christine Holgate
-                may not have been aware just how politically charged Australia
-                Post was when she took on the job of chief executive. 10 MINUTES
-                AGO  By RACHEL BAXENDALE
-              </span>
-            </div>
+            {headlineArticles.slice(-2).map((article) => (
+              <Grid.Column
+                width="3"
+                key={article.title}
+                style={{ marginTop: "1rem" }}
+              >
+                <span>
+                  <h3>{article.title}</h3>
+                </span>
+                <div style={{ marginTop: "1rem" }}>
+                  <span>{article.body.substring(0, 250)}</span>
+                </div>
+              </Grid.Column>
+            ))}
           </Grid.Column>
           <Grid.Column width="5">
-            <Image src="https://content.api.news/v3/images/bin/ac8a4efecd72fc932d542cb07f259c47?width=480" />
-            <div>
-              <span>
-                COMMENTARY Revealed: the real dispute behind the Christine
-                Holgate saga The former chief executive has broken through the
-                cover-up culture to expose the true cause of divisions over
-                Australia Post and its future. 1 HOUR AGO  By ROBERT GOTTLIEBSEN
-              </span>
-            </div>
+            {headlineArticles2.slice(-1).map((article) => (
+              <Grid.Column
+                width="3"
+                key={article.title}
+                style={{ marginTop: "1rem" }}
+              >
+                <Image src={article.image} />
+                <div style={{ marginTop: "1rem" }}>
+                  <span>
+                    <h3>{article.title}</h3>
+                  </span>
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  <span>{article.body.substring(0, 250)}</span>
+                </div>
+              </Grid.Column>
+            ))}
           </Grid.Column>
           <Grid.Column width="3">
             <Grid.Row divided>
-              <NewsArticle
-                image={
-                  "https://content.api.news/v3/images/bin/56ded8af2163635aa5711d11166d4f50?width=480"
-                }
-                body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-              />
-            </Grid.Row>
-            <Grid.Row divided>
-              <NewsArticle
-                body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-              />
+              {headlineArticles3.slice(-1).map((article) => (
+                <Grid.Column
+                  width="3"
+                  key={article.title}
+                  style={{ marginTop: "1rem" }}
+                >
+                  <NewsArticle article={article} />
+                </Grid.Column>
+              ))}
             </Grid.Row>
           </Grid.Column>
           <Grid.Column width="4">
@@ -74,50 +105,12 @@ export default function BodyHeadlines() {
         </Grid.Row>
         <Divider />
         <Grid.Row columns="5" divided>
-          <Grid.Column width="3">
-            <NewsArticle
-              image={
-                "https://content.api.news/v3/images/bin/56ded8af2163635aa5711d11166d4f50?width=480"
-              }
-              body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-            />
-          </Grid.Column>
-          <Grid.Column width="3">
-            <NewsArticle
-              image={
-                "https://content.api.news/v3/images/bin/56ded8af2163635aa5711d11166d4f50?width=480"
-              }
-              body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-            />
-          </Grid.Column>
-          <Grid.Column width="3">
-            <NewsArticle
-              image={
-                "https://content.api.news/v3/images/bin/56ded8af2163635aa5711d11166d4f50?width=480"
-              }
-              body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-            />
-          </Grid.Column>
-          <Grid.Column width="3">
-            <NewsArticle
-              image={
-                "https://content.api.news/v3/images/bin/56ded8af2163635aa5711d11166d4f50?width=480"
-              }
-              body={`'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt dolores
-                recusandae molestias soluta facere ea dolore illum placeat fugiat
-                perferendis eaque laboriosam adipisci, quia officiis saepe quisquam nam
-                doloribus corporis'`}
-            />
-          </Grid.Column>
+          {headlineArticles4.slice(-4).map((article) => (
+            <Grid.Column width="3" key={article.title}>
+              <NewsArticle article={article} />
+            </Grid.Column>
+          ))}
+
           <Grid.Column width="4">
             <Ad
               image={

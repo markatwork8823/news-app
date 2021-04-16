@@ -1,8 +1,11 @@
-import React from 'react';
-import { Segment } from 'semantic-ui-react';
+import React from "react";
 export default function AdBlock() {
   return (
-  <Segment>
-      this is an ad block
-  </Segment>
-  )}
+      <div className="headerBackground">
+        <img
+          src="https://tpc.googlesyndication.com/simgad/8752082187363945184"
+          className="headerAd"
+        ></img>
+      </div>
+  );
+}
